@@ -109,6 +109,49 @@ export const logout = (req, res) => {
   }
 };
 
+export const updatePassword = async (req, res) => {
+  try {
+    const { email, password, newPassword } = req.body;
+
+    if (!email || !password || !newPassword) {
+      return res
+        .status(400)
+        .json({ success: false, message: "All fields are required" });
+    }
+
+    const [rows] = await pool.query("SELECT * FROM users WHERE email=?", [
+      email,
+    ]);
+
+    if (rows.length === 0) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+
+    const user = rows[0];
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Current password is incorrect" });
+    }
+
+    const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+
+    await pool.query("UPDATE users SET password=? WHERE email=?", [
+      hashedNewPassword,
+      email,
+    ]);
+
+    res.json({ success: true, message: "Password updated successfully" });
+  } catch (error) {
+    console.error("Error in updatePassword:", error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};
+
 export const checkAuth = async (req, res) => {
   try {
     res.status(200).json({ success: true, user: req.user });
