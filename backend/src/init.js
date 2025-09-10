@@ -14,6 +14,29 @@ const initDB = async () => {
       )
     `);
 
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS stores (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(60) NOT NULL,
+      email VARCHAR(100),
+      address VARCHAR(400),
+      owner_id INT,
+      FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE SET NULL
+      )
+    `);
+
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS ratings (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      user_id INT NOT NULL,
+      store_id INT NOT NULL,
+      rating INT CHECK (rating BETWEEN 1 AND 5),
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES users(id),
+      FOREIGN KEY (store_id) REFERENCES stores(id)
+      )
+    `);
+
     console.log("Initialization Done...");
     // process.exit(0);
   } catch (error) {
