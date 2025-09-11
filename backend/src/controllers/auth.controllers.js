@@ -34,6 +34,8 @@ export const signup = async (req, res) => {
 
     const token = createToken(user, res);
 
+    console.log("New User created: ", user.name);
+
     res.json({
       success: true,
       message: "Signup successful",
