@@ -33,7 +33,8 @@ const initDB = async () => {
       rating INT CHECK (rating BETWEEN 1 AND 5),
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (user_id) REFERENCES users(id),
-      FOREIGN KEY (store_id) REFERENCES stores(id)
+      FOREIGN KEY (store_id) REFERENCES stores(id),
+      UNIQUE (user_id, store_id)
       )
     `);
 
