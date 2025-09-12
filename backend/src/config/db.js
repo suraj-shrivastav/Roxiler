@@ -3,6 +3,16 @@ import dotenv from "dotenv";
 import initDB from "../init.js";
 dotenv.config();
 
+// console.log(
+//   process.env.DB_HOST,
+//   " ",
+//   process.env.DB_USER,
+//   " ",
+//   process.env.DB_PASS,
+//   " ",
+//   process.env.DB_NAME
+// );
+
 const pool = mysql.createPool({
   host: process.env.DB_HOST || "127.0.0.1",
   user: process.env.DB_USER || "root",

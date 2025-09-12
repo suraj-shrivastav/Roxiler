@@ -17,6 +17,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(cookieParser());
 
 app.use("/auth", authRoutes);
