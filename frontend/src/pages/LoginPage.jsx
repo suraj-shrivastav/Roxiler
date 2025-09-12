@@ -146,17 +146,6 @@ export default function LoginPage() {
                         {renderFieldError("password")}
                     </div>
 
-                    {/* Remember & Forgot */}
-                    <div className="flex items-center justify-between">
-                        <label className="flex items-center group cursor-pointer">
-                            <input type="checkbox" className="w-4 h-4 text-black border-gray-300 rounded focus:ring-black focus:ring-2 transition-colors" />
-                            <span className="ml-2 text-sm text-gray-600 group-hover:text-gray-800 transition-colors">Remember me</span>
-                        </label>
-                        <Link to="/forgot-password" className="text-sm text-black hover:text-gray-700 transition-colors font-medium">
-                            Forgot password?
-                        </Link>
-                    </div>
-
                     {/* Submit Error */}
                     {errors.submit && (
                         <div className="flex items-center space-x-3 p-4 bg-red-50 border border-red-200 rounded-lg" role="alert">
@@ -190,7 +179,6 @@ export default function LoginPage() {
                             Don't have an account?{" "}
                             <Link to="/signup" className="text-black font-medium hover:text-gray-700 transition-colors inline-flex items-center space-x-1">
                                 <span>Sign up</span>
-                                <User className="w-4 h-4" />
                             </Link>
                         </p>
                     </div>

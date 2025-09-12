@@ -1,4 +1,5 @@
 import pool from "./config/db.js";
+import { initializeDummyUsers } from "./initializeDummyUsers.js";
 
 const initDB = async () => {
   try {
@@ -39,6 +40,7 @@ const initDB = async () => {
     `);
 
     console.log("Initialization Done...");
+    initializeDummyUsers();
     // process.exit(0);
   } catch (error) {
     console.error("Error creating tables:", error);

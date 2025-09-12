@@ -61,7 +61,9 @@ export default function UserDashboard() {
                             <div key={store.store_id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-200 hover:border-gray-300">
                                 <div className="p-6">
                                     <h2 className="text-xl font-semibold text-gray-900 mb-2">{store.store_name}</h2>
-                                    <p className="text-sm text-gray-600 mb-4">{store.address}</p>
+                                    <p className="text-sm text-gray-600 mb-4 break-words whitespace-normal">
+                                        {store.address}
+                                    </p>
 
                                     <div className="space-y-4 mb-6">
                                         <div className="flex items-center justify-between">

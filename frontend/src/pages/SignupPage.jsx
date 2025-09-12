@@ -235,7 +235,6 @@ export default function SignupPage() {
                             Already have an account?{" "}
                             <Link to="/login" className="text-black font-medium hover:text-gray-700 transition-colors inline-flex items-center space-x-1">
                                 <span>Sign in</span>
-                                <User className="w-4 h-4" />
                             </Link>
                         </p>
                     </div>

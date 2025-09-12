@@ -46,6 +46,7 @@ export const signup = async (req, res) => {
     res.status(500).json({ success: false, message: "Signup Error" });
   }
 };
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -87,6 +88,7 @@ export const login = async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 };
+
 export const logout = (req, res) => {
   try {
     res.cookie("jwt", "", { maxAge: 0 });
@@ -132,6 +134,7 @@ export const updatePassword = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
+
 export const checkAuth = async (req, res) => {
   try {
     res.status(200).json({ success: true, user: req.user });
