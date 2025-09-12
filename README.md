@@ -14,8 +14,8 @@ This project emphasizes clean architecture, secure authentication, and responsiv
 
 ## Tech Stack
 
-- Backend: Express.js / Loopback / NestJS (one option)
-- Database: PostgreSQL / MySQL
+- Backend: Express.js
+- Database: MySQL
 - Frontend: React.js
 
 ---
