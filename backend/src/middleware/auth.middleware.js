@@ -9,6 +9,7 @@ export const protectRoute = (allowedRoles = []) => {
     try {
       console.log("Protect Route Middleware Accessed");
       const token = req.cookies?.jwt;
+      console.log("Token is: ", token);
 
       if (!token) {
         return res.status(401).json({
@@ -17,7 +18,7 @@ export const protectRoute = (allowedRoles = []) => {
         });
       }
 
-      const JWT_SECRET = process.env?.JWT_SECRET || "jwt_secret_key";
+      const JWT_SECRET = process.env.JWT_SECRET || "jwt_secret_key";
 
       const decoded = jwt.verify(token, JWT_SECRET);
 

@@ -32,6 +32,7 @@ export const getBasicUserList = async () => {
 export const getDetailedUserList = async () => {
   const [rows] = await pool.query(`
     SELECT 
+      u.id,
       u.name,
       u.email,
       u.address,
