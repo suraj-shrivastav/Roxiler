@@ -1,10 +1,10 @@
-# Roxiler System - Rating Assignment
+# Rating System
 
-A Full Stack Web Application developed as part of the Roxiler Systems FullStack Intern Coding Challenge. The platform allows users to register, submit ratings for stores, and manage operations through role-based access control.
+A Full Stack Web Application that allows users to register, submit ratings for stores, and manage operations through role-based access control.
 
 ## Project Overview
 
-The Roxiler Rating System enables users to rate stores (1–5 stars), explore stores by name or address, and interact with the platform based on their roles. The platform offers:
+The Rating System enables users to rate stores (1–5 stars), explore stores by name or address, and interact with the platform based on their roles. The platform offers:
 
 - Clean architecture with modular components
 - Secure authentication and password validation
